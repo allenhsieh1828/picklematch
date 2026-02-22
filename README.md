@@ -1,3 +1,45 @@
+# picklematch
+
+簡短說明：Next.js + Supabase 範例應用（picklematch）。
+
+快速開始
+
+- 安裝依賴：
+```bash
+npm install
+```
+- 本機開發：
+```bash
+npm run dev
+```
+
+環境變數
+
+請在 Vercel 或本機 `.env.local` 設定下列變數（範例已在 `.env.example`）：
+
+- `NEXT_PUBLIC_SUPABASE_URL` - 你的 Supabase URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` - 公開匿名金鑰
+
+注意：若使用 Supabase 的 service role key，請只在 server-side 或秘密設定使用，勿放到前端公開變數。
+
+部署到 Vercel（快速步驟）
+
+1. 登入 https://vercel.com 並連結你的 GitHub 帳號。  
+2. 點 New Project → 選擇 `allenhsieh1828/picklematch` → Import。  
+3. Vercel 會自動偵測 Next.js，Build command 採預設 `npm run build`。  
+4. 在 Environment Variables 新增 `NEXT_PUBLIC_SUPABASE_URL` 和 `NEXT_PUBLIC_SUPABASE_ANON_KEY`（Production）。  
+5. Import 並 Deploy，完成後即可透過 Vercel 提供的網址存取。
+
+使用 CLI（可選）
+
+```bash
+npm i -g vercel
+vercel login
+cd /path/to/picklematch
+vercel --prod
+```
+
+如需我幫你：我可以直接在 Vercel UI 逐步說明或協助設定 env vars。 
 # 🏓 PickleMatch — 匹克球媒合平台
 
 ## 快速開始
