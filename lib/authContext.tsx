@@ -14,12 +14,14 @@ const supabase = createBrowserClient(
 interface AuthContextValue {
   supabaseUser: SupabaseUser | null;
   profile: Profile | null;
+  // backward-compatible alias used in some pages
+  currentUser: Profile | null;
   isLoggedIn: boolean;
   isLoading: boolean;
   login:    (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   register: (nickname: string, email: string, password: string) => Promise<{ success: boolean; error?: string }>;
   logout:   () => Promise<void>;
-  updateProfile: (patch: Partial<Profile>) => Promise<void>;
+  updateProfile: (patch: Partial<Profile>) => Promise<{ success: boolean; error?: string }>;
 }
 
 const AuthContext = createContext<AuthContextValue | null>(null);
@@ -145,6 +147,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     <AuthContext.Provider value={{
       supabaseUser,
       profile,
+      currentUser: profile,
       isLoggedIn: !!supabaseUser && !!profile,
       isLoading,
       login,
