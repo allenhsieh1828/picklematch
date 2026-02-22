@@ -1,0 +1,43 @@
+import { Activity } from '@/types/activity';
+
+export const MOCK_ACTIVITIES: Activity[] = [
+  {
+    id: 'act-001',
+    title: '週六熱血初級班',
+    location: '內湖運動中心',
+    date: '2026-02-22',
+    time: '14:00 - 16:00',
+    level: [2.0, 3.0],
+    fee: 200,
+    maxPlayers: 12,
+    currentPlayers: 9,
+    hostName: '阿志哥',
+    status: 'open',
+  },
+  {
+    id: 'act-002',
+    title: '週日晨間競技局',
+    location: '大安森林公園球場',
+    date: '2026-02-23',
+    time: '07:00 - 09:00',
+    level: [3.5, 4.5],
+    fee: 350,
+    maxPlayers: 8,
+    currentPlayers: 8,
+    hostName: 'Jenny C.',
+    status: 'full',
+  },
+  {
+    id: 'act-003',
+    title: '週三夜間練習賽',
+    location: '南港展覽館旁球場',
+    date: '2026-02-25',
+    time: '19:30 - 21:30',
+    level: [2.5, 3.5],
+    fee: 250,
+    maxPlayers: 16,
+    currentPlayers: 4,
+    hostName: '匹克王',
+    status: 'open',
+  },
+];
