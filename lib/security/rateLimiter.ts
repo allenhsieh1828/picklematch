@@ -18,12 +18,13 @@ const store = new Map<string, WindowEntry>();
 // 定期清理過期 IP（避免記憶體洩漏）
 setInterval(() => {
   const now = Date.now();
-  for (const [key, entry] of store.entries()) {
+  // 使用 forEach 以避免編譯器需要 downlevelIteration
+  store.forEach((entry, key) => {
     // 如果最後一筆請求超過 10 分鐘前，刪除整筆記錄
     if (entry.timestamps.length === 0 || now - entry.timestamps[entry.timestamps.length - 1] > 600_000) {
       store.delete(key);
     }
-  }
+  });
 }, 60_000); // 每分鐘清理一次
 
 export interface RateLimitConfig {
